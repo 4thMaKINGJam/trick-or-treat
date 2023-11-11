@@ -23,6 +23,7 @@ public class BaseMonster : MonoBehaviour
     public int LAYER_PLAYER = 11;
     public int LAYER_PLAYER_ATTACK = 14;
 
+
     // 태그 이름
     public string TAG_PLAYER = "Player";
 
