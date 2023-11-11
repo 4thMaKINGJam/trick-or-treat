@@ -11,4 +11,12 @@ public class Define
         FinalStage,
         EndingScene
     }
+
+    public enum Layer
+    {
+        PlayerDamage = 6,
+        MonsterDamage = 7,
+    }
+
+    public string PlayerTag = "Player";
 }
