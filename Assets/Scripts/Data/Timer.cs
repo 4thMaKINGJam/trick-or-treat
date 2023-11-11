@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Diagnostics;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    Stopwatch stopwatch;
     [SerializeField] private TextMeshProUGUI timeText;
-
-
-    [SerializeField] private float setTime = 180;
-
+    [SerializeField] private float setTime = 180; // 제한 시간
 
     void Start()
     {
@@ -31,11 +25,7 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         timeText.text = GetTimeString();
-
-        // 남은 시간을 감소시켜준다.
         setTime -= Time.deltaTime;
-
-      
     }
 
 }

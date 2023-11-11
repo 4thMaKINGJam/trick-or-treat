@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
     {
         Init();
     }
-    
+
     static void Init()
     {
         //싱글톤
-        if(_instance == null)
+        if (_instance == null)
         {
             GameObject _go = GameObject.Find("@GameManager");
             if (_go == null)
@@ -31,5 +31,15 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(_go);
             _instance = _go.GetComponent<GameManager>();
         }
+    }
+    public void Update()
+    {
+        Debug.Log(GameStaticData._dataInstance.playerHp);
+        if (GameStaticData._dataInstance.playerHp <= 0) GameOver();
+    }
+
+    public void GameOver()
+    {
+        Camera.main.GetComponent<CameraManager>()?.CameraPause();
     }
 }
