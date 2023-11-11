@@ -11,4 +11,10 @@ public class Define
         FinalStage,
         EndingScene
     }
+
+    public enum Attack
+    {
+        ShortAttack,
+        MagicAttack
+    }
 }
