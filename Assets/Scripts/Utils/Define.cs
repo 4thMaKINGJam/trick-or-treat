@@ -17,4 +17,12 @@ public class Define
         ShortAttack,
         MagicAttack
     }
+
+    public enum Layer
+    {
+        PlayerDamage = 6,
+        MonsterDamage = 7,
+    }
+
+    public string PlayerTag = "Player";
 }

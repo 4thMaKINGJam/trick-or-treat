@@ -9,7 +9,7 @@ public class BaseMonster : MonoBehaviour
     protected int nextMove;         // 다음 행동지표를 결정할 변수
     protected float time;           // 생각하는 시간을 랜덤으로 부여 
 
-    public Animator animator;       // 애니메이션
+    //public Animator animator;       // 애니메이션
     public SpriteRenderer spriteRenderer;  // 무적상태일 시, 투명도 조절
 
     public ParticleSystem effect;
@@ -69,7 +69,7 @@ public class BaseMonster : MonoBehaviour
 
         rigid.velocity = velocy * 5;
 
-        animator.SetTrigger("OnDamage");
+        //animator.SetTrigger("OnDamage");
 
         //SoundManager.Inst.Play("stab" + Random.Range(1, 5).ToString(), SoundType.Sfx);
 
