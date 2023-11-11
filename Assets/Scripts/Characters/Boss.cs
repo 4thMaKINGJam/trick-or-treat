@@ -9,8 +9,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject laser; // laser prefab
 
     private float timer = 0;                // timer
-    private float attackCoolTime = 2.0f;    // attack cool time
-    private float attackReadyTime = 1.5f;
+    private float attackCoolTime = 1.0f;    // attack cool time
+    private float attackReadyTime = 1.0f;
     private bool attackReady = false;
 
     [SerializeField] private float minY;

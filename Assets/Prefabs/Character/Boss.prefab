@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 5918489164856631696, guid: 1df67fdf6156be645b69390973607eae, type: 3}
   minY: -2
-  maxY: 2
+  maxY: 1
   target: {fileID: 678199866548952423, guid: 9ae623e578325494c86ff695f2710497, type: 3}
 --- !u!61 &6603900710858091336
 BoxCollider2D:
@@ -323,8 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 5918489164856631696, guid: 1df67fdf6156be645b69390973607eae, type: 3}
-  minY: 2
-  maxY: 5
+  minY: 1
+  maxY: 6
   target: {fileID: 678199866548952423, guid: 9ae623e578325494c86ff695f2710497, type: 3}
 --- !u!61 &7475726197064384878
 BoxCollider2D:
@@ -362,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18203624219256957}
   - component: {fileID: 467417059265590221}
+  - component: {fileID: 502088564624264865}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
@@ -414,6 +415,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.581932, y: 3.9643574}
   m_EdgeRadius: 0
+--- !u!114 &502088564624264865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198220998876240156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6035e7cea8f0f1746961c684811e5d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossElement:
+  - {fileID: 1396872247430183210}
+  - {fileID: 635837762382233339}
+  - {fileID: 6429502568229507690}
+  - {fileID: 6804032684231973729}
 --- !u!1 &6429502568229507690
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 5918489164856631696, guid: 1df67fdf6156be645b69390973607eae, type: 3}
   minY: -5
-  maxY: -2
+  maxY: -1
   target: {fileID: 678199866548952423, guid: 9ae623e578325494c86ff695f2710497, type: 3}
 --- !u!61 &7479209163530785233
 BoxCollider2D:
