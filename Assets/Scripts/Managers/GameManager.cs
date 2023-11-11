@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
     //Scene Manager
     private ChangeScene _scene = new ChangeScene();
     public static ChangeScene Scene { get { return _instance._scene;  } }
-    
+
+    [SerializeField]
+    private GameObject gameOverUI;
+
     void Start()
     {
         Init();
@@ -39,11 +42,24 @@ public class GameManager : MonoBehaviour
     }
     public void Update()
     {
-        if (GameManager.playerHp <= 0) GameOver();
+        if (playerHp <= 0) GameOver();
     }
 
-    public static void GameOver()
+    public void GameOver()
     {
         Camera.main.GetComponent<CameraManager>()?.CameraPause();
+        gameOverUI.SetActive(true);
+        //StartCoroutine(GameOverRoutine());
+    }
+
+    //private IEnumerator GameOverRoutine()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    Time.timeScale = 0.0f;
+    //}
+
+    public static void RestartStage002()
+    {
+        Scene.LoadScene(Define.Scene.Stage002);
     }
 }

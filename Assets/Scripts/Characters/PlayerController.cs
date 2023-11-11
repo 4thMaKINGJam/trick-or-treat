@@ -142,10 +142,11 @@ public class PlayerController : MonoBehaviour
             _state = PlayerState.Idle;
         }
 
+        // stage 2에서 카메라 밖으로 나갔을 때 죽음
         if (other.gameObject.layer == (int)Define.Layer.Dead)
         {
-            GameManager.GameOver();
-            Debug.Log("쥬금");
+            GameManager.playerHp = 0;
+            Debug.Log("stage 2에서 카메라 밖으로 나갔을 때 죽음");
         }
     }
 
