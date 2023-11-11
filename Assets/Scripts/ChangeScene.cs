@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class ChangeScene
 {
-    // load start scene
-    public void OnLoadStartScene()
+    public void LoadScene(Define.Scene type)
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene(GetSceneName(type));
+    }
+    
+    string GetSceneName(Define.Scene type)
+    {
+        string name = System.Enum.GetName(typeof(Define.Scene), type);
+        return name;
     }
 }
