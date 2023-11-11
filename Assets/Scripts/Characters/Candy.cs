@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Candy : Touchable
 {
-    [SerializeField]
-    private int healAmount = 3;
 
     public override void OnTouch(Collider2D collision)
     {
