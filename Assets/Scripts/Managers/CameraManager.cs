@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
     private Transform _target;
 
     [SerializeField] private float setTime = 10; // 제한 시간 (초)
-    private float speed = 1f; // 올라가는 속도
+    public float speed = 1f; // 올라가는 속도
 
     public void Update()
     { 
