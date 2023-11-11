@@ -8,6 +8,7 @@ public class Define
     {
         Lobby,
         Stage001,
+        Stage002,
         BossScene,
         EndingScene
     }

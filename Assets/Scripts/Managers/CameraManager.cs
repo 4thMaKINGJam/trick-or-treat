@@ -12,8 +12,9 @@ public class CameraManager : MonoBehaviour
     private float speed = 1f; // 올라가는 속도
 
     public void Update()
-    {
-        //Debug.Log(setTime);
+    { 
+        if (!GameStaticData._dataInstance.isCandy) return; // 사탕 먹은 후부터 카메라 움직임.
+
         if (setTime <= 0) return;
 
         setTime -= Time.deltaTime;
