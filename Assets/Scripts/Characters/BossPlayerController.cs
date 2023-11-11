@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -36,9 +37,9 @@ public class BossPlayerController : MonoBehaviour
             _transform.position += speed * Time.deltaTime * Vector3.up;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            _transform.position += speed * Time.deltaTime * Vector3.down;
+            _transform.position -= speed * Time.deltaTime * Vector3.up;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -62,8 +63,13 @@ public class BossPlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
+        {
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+            GameStaticData._dataInstance.playerHp -= 10;
+        }
+        Debug.Log("Trigger");
     }
 }
