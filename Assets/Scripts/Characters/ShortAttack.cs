@@ -1,27 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using DG.Tweening;
+using Unity.VisualScripting;
+using Quaternion = UnityEngine.Quaternion;
+using Sequence = DG.Tweening.Sequence;
+using Vector3 = UnityEngine.Vector3;
 
-//상시 플레이어 앞에 두기
-//Show, Hide로...
 public class ShortAttack : MonoBehaviour
 {
     private int _damage;
+    public Transform wand;
 
     public void Attack()
     {
-        Show();
-    }
-
-    private void Show()
-    {
-        gameObject.SetActive(true);
-        //애니메이션 1회 출력
-        //출력 종료 시 Hide
+        Sequence s = DOTween.Sequence();
+        wand.gameObject.SetActive(true);
+        
+        wand.rotation = Quaternion.Euler(new Vector3(0f, 0f,15.0f));
+        
+        s.Append(wand.DOLocalRotate(new Vector3(0f, 0f, 135.0f), 0.2f));
+        s.Play().OnComplete((() => { Hide(); }));
     }
 
     private void Hide()
     {
-        gameObject.SetActive(false);
+        wand.gameObject.SetActive(false);
     }
+
 }
