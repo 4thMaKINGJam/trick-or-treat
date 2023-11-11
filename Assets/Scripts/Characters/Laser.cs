@@ -4,42 +4,41 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private Vector3 targetPos;
+    private Rigidbody2D rigid;   
 
-    private Rigidbody2D rigid;      // move
+    private int moveDir;
 
     private int hp;                 // hp
 
-    private bool isTracing = true;  // is target tracing
+    //private GameObject target;
+    //public Vector3 targetPos;
+
+    private float speed = 5.0f;
+
+    //private void Awake()
+    //{
+    //    target = GameObject.FindWithTag("Player");
+    //}
 
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = new Vector3(1f, 0, 0);
         hp = 1;
+        moveDir = -1;
 
+        rigid = GetComponent<Rigidbody2D>();
+        rigid.velocity = new Vector3(5, 0, 0) * moveDir;
     }
 
     private void Update()
     {
         if (hp <= 0) return;
-
-        if (isTracing)
-        {
-            targetPos = GetComponent<Boss>().target.transform.position;
-            transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPos, 0.1f); // 발사
-
-            //한 번 발사되고 끝
-            if (targetPos == transform.position)
-            {
-                isTracing = false;
-            }
-        }
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player")
+        {
             hp--;
             StartCoroutine(Die());
         }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public GameObject target;
     [SerializeField] private GameObject laser; // laser prefab
 
     private float timer = 0;                // timer
@@ -18,8 +17,7 @@ public class Boss : MonoBehaviour
         if (timer == 0)
         {
             // make laser
-            //Destroy(Instantiate(laser, transform.position, Quaternion.identity), 5f);
-            Instantiate(laser, transform.position, Quaternion.identity);
+            Destroy(Instantiate(laser, transform.position, Quaternion.identity), 5f);
         }
 
         timer += Time.deltaTime;
