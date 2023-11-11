@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     }
     public void Update()
     {
-        Debug.Log(GameStaticData._dataInstance.playerHp);
         if (GameStaticData._dataInstance.playerHp <= 0) GameOver();
     }
 
