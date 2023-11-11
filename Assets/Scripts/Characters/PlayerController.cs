@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 1.0f;
     public float fallForce = 1000f;
     public float speed = 8.0f;
-    
+
+    private Animator _anim;
     private Transform _transform;
     private Rigidbody2D _rigid;
     private PlayerState _state;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private ShortAttack _shortAttack;
     private void Awake()
     {
+        _anim = gameObject.GetComponent<Animator>();
         _transform = transform;
         _rigid = Util.GetOrAddComponent<Rigidbody2D>(gameObject);
         _state = PlayerState.Idle;
@@ -57,8 +59,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)) { MagicAttack();}
         if(Input.GetKeyDown(KeyCode.X)) { Dash();}
         if(Input.GetKeyDown(KeyCode.Space)){ Jump();}
-        if (Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
-        
+        if(Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
         if (Input.GetKeyDown(KeyCode.LeftArrow)) { Turn(_left); }
         if (Input.GetKeyDown(KeyCode.RightArrow)) { Turn(_right); }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) { Move(); }
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _transform.Translate(speed * Time.deltaTime * Vector3.right);
+        _anim.Play("Walk");
     }
 
     private void Turn(Quaternion direction)
