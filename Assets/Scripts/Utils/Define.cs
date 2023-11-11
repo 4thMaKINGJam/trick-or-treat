@@ -12,6 +12,12 @@ public class Define
         EndingScene
     }
 
+    public enum Attack
+    {
+        ShortAttack,
+        MagicAttack
+    }
+
     public enum Layer
     {
         PlayerDamage = 6,
