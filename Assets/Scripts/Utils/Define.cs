@@ -7,6 +7,8 @@ public class Define
     public enum Scene
     {
         Lobby,
+        StartScene,
+        TitleScene,
         Stage001,
         Stage002,
         BossScene,
