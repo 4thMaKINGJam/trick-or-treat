@@ -6,6 +6,9 @@ public class GameStaticData : MonoBehaviour
 {
     public static GameStaticData _dataInstance;
 
+    public int playerHp = 100;
+    public int playerAtk = 10;
+
     // background music on/off
     public bool isBgm = true;
 

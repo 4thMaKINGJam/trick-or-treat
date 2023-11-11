@@ -15,8 +15,8 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-    public int hp = 100;
-    public int atk = 10;
+    [SerializeField] private GameObject laser; //laser 프리팹
+    
     public float firstForce = 3f; //처음 마녀가 떨어질 때 앞으로 가해지는 힘
     public float jumpForce = 1000f;
     public float dashForce = 3f;
@@ -39,13 +39,11 @@ public class PlayerController : MonoBehaviour
         _left = Quaternion.Euler(new Vector3(0f, 180.0f, 0f));
         _right = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         _shortAttack = Util.FindChild<ShortAttack>(gameObject, Define.Attack.ShortAttack.ToString(), false);
-
-        _rigid.velocity = new Vector3(firstForce, 0f, 0f);
     }
     
     private void Start()
     {
-        
+        _rigid.velocity = new Vector3(firstForce, 0f, 0f);
     }
 
     private void Update()
@@ -68,12 +66,16 @@ public class PlayerController : MonoBehaviour
 
     private void MagicAttack()
     {
-        //발사체 주시면 Start
+        if (_transform.rotation.y != 0) { //좌우 방향 확인
+            Destroy(Instantiate(laser, _transform.position, _left), 5f);
+        }
+        else {
+            Destroy(Instantiate(laser, _transform.position, _right), 5f);
+        }
     }
 
     private void ShortAttack()
     {
-        //캐릭터의 일정 거리 앞에 생성하기 (충돌처리 등은 해당 클래스 내에서 진행)
         _shortAttack.Attack();
     }
 
