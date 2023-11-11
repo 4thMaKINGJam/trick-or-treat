@@ -15,8 +15,8 @@ public class Candy : Touchable
 
             if (player != null)
             {
-                //Debug.Log("»çÅÁ ¸Ô¾ú´Ù.");
-                GameStaticData._dataInstance.isCandy = true; // »çÅÁ ¸ÔÀ½.
+                //Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¾ï¿½ï¿½ï¿½.");
+                GameManager.isCandy = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
                 GameManager.Scene.LoadScene(Define.Scene.Stage002);
                 //player.GetHealed(healAmount);
                 //SoundManager.Inst.Play("potion", SoundType.Sfx);

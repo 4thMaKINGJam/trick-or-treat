@@ -68,7 +68,7 @@ public class BossPlayerController : MonoBehaviour
         if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
         {
             Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
-            GameStaticData._dataInstance.playerHp -= 10;
+            GameManager.playerHp--;
         }
         Debug.Log("Trigger");
     }

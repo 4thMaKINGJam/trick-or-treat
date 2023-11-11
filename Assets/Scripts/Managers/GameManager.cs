@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static int playerHp = 5;
+    public static int playerAtk = 10;
+
+    public static bool isCandy = false;
+    
     static GameManager _instance;
     static GameManager Instance { get { Init(); return _instance; } }
     
@@ -34,7 +39,7 @@ public class GameManager : MonoBehaviour
     }
     public void Update()
     {
-        if (GameStaticData._dataInstance.playerHp <= 0) GameOver();
+        if (GameManager.playerHp <= 0) GameOver();
     }
 
     public static void GameOver()
