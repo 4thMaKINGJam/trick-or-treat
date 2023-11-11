@@ -30,7 +30,7 @@ public class BossPlayerController : MonoBehaviour
 
     private void PlayerInput()
     {
-        if(Input.GetKeyDown(KeyCode.S)) { MagicAttack();}
+        if(Input.GetKeyDown(KeyCode.Z)) { MagicAttack();}
         
         if (Input.GetKey(KeyCode.UpArrow))
         {
