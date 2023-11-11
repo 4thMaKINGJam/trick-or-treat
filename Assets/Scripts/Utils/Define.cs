@@ -22,6 +22,7 @@ public class Define
     {
         PlayerDamage = 6,
         MonsterDamage = 7,
+        Ground = 8,
     }
 
     public string PlayerTag = "Player";
