@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState _state;
     private Quaternion _left;
     private Quaternion _right;
-    private ShortAttack _shortAttack;
+    //private ShortAttack _shortAttack;
     private void Awake()
     {
         _anim = gameObject.GetComponent<Animator>();
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         _state = PlayerState.Idle;
         _left = Quaternion.Euler(new Vector3(0f, 180.0f, 0f));
         _right = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-        _shortAttack = Util.FindChild<ShortAttack>(gameObject, Define.Attack.ShortAttack.ToString(), false);
+        //_shortAttack = Util.FindChild<ShortAttack>(gameObject, Define.Attack.ShortAttack.ToString(), false);
     }
     
     private void Start()
@@ -55,8 +55,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerInput()
     {
-        if(Input.GetKeyDown(KeyCode.A)) { ShortAttack();}
-        else if(Input.GetKeyDown(KeyCode.S)) { MagicAttack();}
+        //if(Input.GetKeyDown(KeyCode.A)) { ShortAttack();} //폐기
+        
+        if(Input.GetKeyDown(KeyCode.Z)) { MagicAttack();}
         else if(Input.GetKeyDown(KeyCode.X)) { Dash();}
         else if(Input.GetKeyDown(KeyCode.Space)){ Jump();}
         else if(Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
@@ -79,11 +80,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
     private void ShortAttack()
     {
         _shortAttack.Attack();
     }
-
+*/
     private void Move()
     {
         _transform.Translate(speed * Time.deltaTime * Vector3.right);
