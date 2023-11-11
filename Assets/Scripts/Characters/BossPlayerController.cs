@@ -70,6 +70,6 @@ public class BossPlayerController : MonoBehaviour
             Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
             GameManager.playerHp--;
         }
-        Debug.Log("Trigger");
+        //Debug.Log("Trigger");
     }
 }
