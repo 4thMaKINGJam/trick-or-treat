@@ -47,4 +47,20 @@ public class StageManager : MonoBehaviour
         float oneHeight = backgroundPrefabs[0].GetComponent<SpriteRenderer>().sprite.bounds.size.y * backgroundPrefabs[0].GetComponent<Transform>().localScale.y;
         return backgroundNum * oneHeight - oneHeight / 3.5f;
     }
+
+    //// detect end stage (maybe this script apply in BasePlayer.cs)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Goal"))
+    //    {
+    //        GameObject.Find("StageManager").GetComponent<StageManager>().DoneStage();
+    //    }
+    //}
+
+    //// done stage
+    //public void DoneStage()
+    //{
+    //    FadeOut(fadeTime);
+    //    Invoke(nameof(OnLoadNextScene), fadeTime);
+    //}
 }
