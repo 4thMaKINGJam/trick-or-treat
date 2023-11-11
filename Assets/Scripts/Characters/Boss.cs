@@ -11,9 +11,19 @@ public class Boss : MonoBehaviour
     private float attackReadyTime = 1.5f;
     private bool attackReady = false;
 
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
+
+    [SerializeField] private GameObject target; // target
+
     // Update is called once per frame
     void Update()
     {
+        float targetY = target.transform.position.y;
+
+        print(targetY);
+        if (targetY < minY || targetY > maxY) return;
+
         if (timer == 0)
         {
             // make laser
