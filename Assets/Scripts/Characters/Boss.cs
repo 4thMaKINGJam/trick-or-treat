@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    // 이 스크립트는 Boss 머리통 각각에 해당하는 스크립트입니다....
+
     [SerializeField] private GameObject laser; // laser prefab
 
     private float timer = 0;                // timer
