@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BossPlayerController : MonoBehaviour
 {
+    private float noDamageTimer = 1.0f; // 무적 시간
+
     [SerializeField] private GameObject laser; //laser 프리팹
 
     public float speed = 8.0f;
@@ -25,6 +27,8 @@ public class BossPlayerController : MonoBehaviour
     
     private void Update()
     {
+        noDamageTimer -= Time.deltaTime;
+
         PlayerInput();
     }
 
@@ -67,9 +71,23 @@ public class BossPlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
         {
-            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+            if (noDamageTimer > 0) return; // 무적
+            noDamageTimer = 1.0f;
+
             GameManager.playerHp--;
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+            StartCoroutine(GetDamagedRoutine());
         }
         //Debug.Log("Trigger");
+    }
+
+    public IEnumerator GetDamagedRoutine()
+    {
+        for (int i = 0; i <= 100; i++)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 0.01f * i, 0.01f * i);
+
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
