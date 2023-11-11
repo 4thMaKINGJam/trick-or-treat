@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: efc9eba4d4797814988f966760101500, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 8690691969003012448, guid: 434f9bce434e7874b8538393d667e6e0, type: 3}
-  firstForce: 3
+  firstForce: 10
   jumpForce: 10
   dashForce: 3
   dashFallForce: 0
