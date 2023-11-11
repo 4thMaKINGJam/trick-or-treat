@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         if (GameStaticData._dataInstance.playerHp <= 0) GameOver();
     }
 
-    public void GameOver()
+    public static void GameOver()
     {
         Camera.main.GetComponent<CameraManager>()?.CameraPause();
     }

@@ -146,7 +146,21 @@ public class PlayerController : MonoBehaviour
         {
             //공격당하기
             Camera.main.GetComponent<CameraManager>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+        }
 
+        if (other.gameObject.layer == (int)Define.Layer.Dead)
+        {
+            GameManager.GameOver();
+            Debug.Log("쥬금");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
+        {
+            //공격당하기
+            Camera.main.GetComponent<CameraManager>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
         }
     }
 }

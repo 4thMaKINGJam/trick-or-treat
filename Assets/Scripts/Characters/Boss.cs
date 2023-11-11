@@ -21,7 +21,7 @@ public class Boss : MonoBehaviour
     {
         float targetY = target.transform.position.y;
 
-        print(targetY);
+        //print(targetY);
         if (targetY < minY || targetY > maxY) return;
 
         if (timer == 0)
