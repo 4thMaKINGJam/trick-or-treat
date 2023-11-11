@@ -56,13 +56,17 @@ public class PlayerController : MonoBehaviour
     private void PlayerInput()
     {
         if(Input.GetKeyDown(KeyCode.A)) { ShortAttack();}
-        if(Input.GetKeyDown(KeyCode.S)) { MagicAttack();}
-        if(Input.GetKeyDown(KeyCode.X)) { Dash();}
-        if(Input.GetKeyDown(KeyCode.Space)){ Jump();}
-        if(Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) { Turn(_left); }
-        if (Input.GetKeyDown(KeyCode.RightArrow)) { Turn(_right); }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) { Move(); }
+        else if(Input.GetKeyDown(KeyCode.S)) { MagicAttack();}
+        else if(Input.GetKeyDown(KeyCode.X)) { Dash();}
+        else if(Input.GetKeyDown(KeyCode.Space)){ Jump();}
+        else if(Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) { Turn(_left); }
+        else if (Input.GetKeyDown(KeyCode.RightArrow)) { Turn(_right); }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) { Move(); }
+        else
+        {
+            _anim.Play("Idle");
+        }
     }
 
     private void MagicAttack()
@@ -108,6 +112,8 @@ public class PlayerController : MonoBehaviour
     {
         if (_state == PlayerState.Dash) return;
 
+        _anim.Play("Idle");
+        
         PlayerState tempState = _state;
         _state = PlayerState.Dash;
         
