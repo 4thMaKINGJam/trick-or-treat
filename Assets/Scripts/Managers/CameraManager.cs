@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
 
     public void Update()
     { 
-        if (!GameStaticData._dataInstance.isCandy) return; // 사탕 먹은 후부터 카메라 움직임.
+        if (!GameManager.isCandy) return; // 사탕 먹은 후부터 카메라 움직임.
 
         if (setTime <= 0) return;
 

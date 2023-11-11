@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
         {
             //공격당하기
             Camera.main.GetComponent<CameraManager>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
-            GameStaticData._dataInstance.playerHp -= 10;
+            GameManager.playerHp--;
         }
     }
 }
