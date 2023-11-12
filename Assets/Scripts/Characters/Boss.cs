@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject laser; // laser prefab
 
     private float timer = 0;                // timer
-    private float attackCoolTime = 1.0f;    // attack cool time
+    private float attackCoolTime = 0.7f;    // attack cool time
     private float attackReadyTime = 1.0f;
     private bool attackReady = false;
 
@@ -29,7 +29,8 @@ public class Boss : MonoBehaviour
         if (timer == 0)
         {
             // make laser
-            Destroy(Instantiate(laser, transform.position, Quaternion.identity), 5f);
+            Vector3 tmp = new Vector3(transform.position.x, targetY, transform.position.z);
+            Destroy(Instantiate(laser, tmp, Quaternion.identity), 5f);
         }
 
         timer += Time.deltaTime;

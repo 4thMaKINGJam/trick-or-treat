@@ -15,6 +15,10 @@ public class Light : MonoBehaviour
     private float attackReadyTime = 1.5f;
     private bool attackReady = false;
 
+    private float loopTime = 1.5f;
+    [SerializeField] private float maxX; // 
+    [SerializeField] private float minX; // 
+
     // Start is called before the first frame update
     void Start()
     {

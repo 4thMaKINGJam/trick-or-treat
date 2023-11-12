@@ -320,6 +320,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImagePrefab: {fileID: 5643852165514451559, guid: 0b4378bf05373234a8a081464acaba7e, type: 3}
+--- !u!1 &215482270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 134940964464999283, guid: bf7d1b526cc917d46b3d8b2f7f05ccc4, type: 3}
+  m_PrefabInstance: {fileID: 943287162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215482273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215482270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90205e110691b14c879a24e477db10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingX: -7
+  loopTime: 4
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4917193
+      value: 0.9999987
+      inSlope: -0.007137637
+      outSlope: -0.007137637
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9916687
+      value: -0.0047187805
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!224 &266783424 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7308337594066812361, guid: e53a49ae86fbf464e834d6e270ba06d6, type: 3}
@@ -1403,6 +1455,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 133237846090689492, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
+      propertyPath: maxY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133237846090689492, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 535522823}
@@ -1437,6 +1493,10 @@ PrefabInstance:
     - target: {fileID: 6544262425686527313, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786457839526853087, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
+      propertyPath: minY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6786457839526853087, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: target
