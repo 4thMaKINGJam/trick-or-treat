@@ -712,6 +712,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61109758759383148, guid: bf7d1b526cc917d46b3d8b2f7f05ccc4, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: ed46976f71062e141800b9cea29540ce, type: 3}
     - target: {fileID: 134940964464999283, guid: bf7d1b526cc917d46b3d8b2f7f05ccc4, type: 3}
       propertyPath: m_Name
       value: Light
@@ -1106,6 +1110,10 @@ PrefabInstance:
       propertyPath: bgm
       value: 
       objectReference: {fileID: 8300000, guid: 9d6d586988b5d404fbba71ff0994ef57, type: 3}
+    - target: {fileID: 1374332319852476774, guid: a24489006c4688746a0879ada99e2769, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3779373117061528545, guid: a24489006c4688746a0879ada99e2769, type: 3}
       propertyPath: m_Name
       value: BgmManager
@@ -1462,6 +1470,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 535522823}
+    - target: {fileID: 133237846090689492, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: e113b9ba0dc6f0c4187e714cf45a81d6, type: 3}
     - target: {fileID: 418219343747833738, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1470,6 +1482,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 535522823}
+    - target: {fileID: 4087186513817015127, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: e113b9ba0dc6f0c4187e714cf45a81d6, type: 3}
     - target: {fileID: 5198220998876240156, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -1502,6 +1518,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 535522823}
+    - target: {fileID: 6786457839526853087, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: e113b9ba0dc6f0c4187e714cf45a81d6, type: 3}
     - target: {fileID: 8853305675210614956, guid: 4716fb23e07417044af3e01ed4e4f184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.46
