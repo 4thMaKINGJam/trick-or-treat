@@ -16,6 +16,8 @@ public class BossPlayerController : MonoBehaviour
     private Quaternion _left;
     private Quaternion _right;
 
+    [SerializeField] private GameObject hpUi; // hp ui
+
     void Awake()
     {
         _transform = transform;
@@ -75,7 +77,8 @@ public class BossPlayerController : MonoBehaviour
             noDamageTimer = 1.0f;
 
             GameManager.playerHp--;
-            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+            PlayerHpManager.FindObjectOfType<PlayerHpManager>().ShowHp();
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.2f, 0.0f); // 카메라 흔듦
             StartCoroutine(GetDamagedRoutine());
         }
         //Debug.Log("Trigger");

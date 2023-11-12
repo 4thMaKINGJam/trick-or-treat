@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BossMonster : MonoBehaviour
 {
-    private int bossHp = 10;
     [SerializeField] private GameObject[] bossElement; // 
 
+    [SerializeField] private GameObject hpUi; // 
 
     private void Update()
     {
-        if (bossHp <= 0)
+        if (GameManager.bossHp <= 0)
         {
             GameManager.Scene.LoadScene(Define.Scene.EndingScene);
             return;
@@ -22,9 +22,9 @@ public class BossMonster : MonoBehaviour
         if (other.gameObject.layer == (int)Define.Layer.MonsterDamage)
         {
             //공격당하기
-            bossHp--;
+            GameManager.bossHp--;
             StartCoroutine(DamagedMonster());
-
+            BossHpManager.FindObjectOfType<BossHpManager>().ShowHp();
         }
     }
     public IEnumerator DamagedMonster()
@@ -37,4 +37,6 @@ public class BossMonster : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
+
+
 }

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static int playerHp = 5;
 
+    public static int bossHp = 6;
+    public static int SkullHp = 5;
+
     public static bool isCandy = false;
     public static bool gameover = false;
     
