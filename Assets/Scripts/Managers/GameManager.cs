@@ -76,8 +76,12 @@ public class GameManager : MonoBehaviour
 
     public static void RestartGame()
     {
-        //데이터초기화
         playerHp = 5;
+
+        bossHp = 6;
+        SkullHp = 5;
+
+        isCandy = false;
         gameover = false;
     }
 }
