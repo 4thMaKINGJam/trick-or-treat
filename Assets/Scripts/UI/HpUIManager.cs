@@ -11,15 +11,21 @@ public class HpUIManager : MonoBehaviour
     private GameObject healthImagePrefab;
     private float spacing = 0.8f; // Adjust this value to set the spacing between health images
 
-    public void Start()
+
+    public void ShowHp(int hp)
     {
-        int hp = GameManager.playerHp;
+        // Destroy existing health images
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        //int hp = GameManager.playerHp;
+        // Instantiate new health images based on the updated player health
 
         for (int i = 0; i < hp; i++)
         {
-            float xPos = transform.position.x + i * spacing;
-            Vector3 spawnPosition = new Vector3(xPos, 0, 0);
-            //Instantiate(healthImagePrefab, spawnPosition, Quaternion.identity);
+            float xPos = i * spacing;
+            Vector3 spawnPosition = new Vector3(transform.position.x+xPos, transform.position.y, transform.position.z);
 
             // Instantiate healthImagePrefab as a child of the current GameObject
             GameObject healthImageInstance = Instantiate(healthImagePrefab, spawnPosition, Quaternion.identity, transform);
@@ -28,4 +34,5 @@ public class HpUIManager : MonoBehaviour
             healthImageInstance.name = "HealthImage" + i;
         }
     }
+
 }
