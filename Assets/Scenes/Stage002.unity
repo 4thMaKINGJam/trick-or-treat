@@ -338,11 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237207943871812864, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.9
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 1237207943871812864, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 1237207943871812864, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1880,6 +1880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1217801620905713138, guid: 533d56042c5518348b2cc6e384dc24db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1217801620905713139, guid: 533d56042c5518348b2cc6e384dc24db, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2034,6 +2038,7 @@ GameObject:
   - component: {fileID: 1620073611}
   - component: {fileID: 1620073610}
   - component: {fileID: 1620073609}
+  - component: {fileID: 1620073612}
   m_Layer: 8
   m_Name: Tilemap (1)
   m_TagString: Untagged
@@ -4119,6 +4124,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1620073612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620073607}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998dddc25f279494ab30984854b791f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingTime: 1
+  endValue: 2
 --- !u!1001 &1632613157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4390,6 +4409,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4be659a2cd10cac468223aba54f4ba28, type: 3}
+--- !u!1 &1952886756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217801620905713139, guid: 533d56042c5518348b2cc6e384dc24db, type: 3}
+  m_PrefabInstance: {fileID: 1555664018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1952886761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952886756}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998dddc25f279494ab30984854b791f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingTime: 1
+  endValue: 2
 --- !u!4 &2002014043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1217801621396104955, guid: 533d56042c5518348b2cc6e384dc24db, type: 3}
