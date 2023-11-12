@@ -659,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3171649712890255525, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_Pivot.x
@@ -1209,6 +1209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 496851173}
     m_Modifications:
+    - target: {fileID: 4575186719381891349, guid: 5af3159eaf699764194ef97eeb058992, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7132427585891460887, guid: 5af3159eaf699764194ef97eeb058992, type: 3}
       propertyPath: m_Name
       value: HP
@@ -1279,11 +1283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7592510158389191384, guid: 5af3159eaf699764194ef97eeb058992, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -778
+      value: -718
       objectReference: {fileID: 0}
     - target: {fileID: 7592510158389191384, guid: 5af3159eaf699764194ef97eeb058992, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 469
+      value: 395
       objectReference: {fileID: 0}
     - target: {fileID: 7592510158389191384, guid: 5af3159eaf699764194ef97eeb058992, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
