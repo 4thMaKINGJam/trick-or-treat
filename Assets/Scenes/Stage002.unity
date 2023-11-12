@@ -461,6 +461,10 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1237207943871812868, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
+      propertyPath: DashEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: c94c3569221c0344aade33b55829c674, type: 3}
+    - target: {fileID: 1237207943871812868, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
       propertyPath: JumpEffect
       value: 
       objectReference: {fileID: 8300000, guid: bf989098433266d4ea70ba98489f4500, type: 3}
@@ -9118,3 +9122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Image: {fileID: 32346902}
+  catAudio: {fileID: 8300000, guid: 663c582a780f2f24a8900b662a021c25, type: 3}

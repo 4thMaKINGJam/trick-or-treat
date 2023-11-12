@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 8.0f;
     public AudioClip AttackEffect;
     public AudioClip JumpEffect;
+    public AudioClip DashEffect;
 
     private Animator _anim;
     private Transform _transform;
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour
         }
         s.Play().OnComplete(() => { _state = tempState; _rigid.AddForce(dashFallForce * Vector2.down, ForceMode2D.Impulse); });
         Debug.Log("Dash");
+        SoundManager._soundInstance.OnAudio(DashEffect);
     }
 
     private void Fall()

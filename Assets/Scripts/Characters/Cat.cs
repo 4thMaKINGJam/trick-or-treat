@@ -7,12 +7,13 @@ public class Cat : MonoBehaviour
 {
     [SerializeField]
     private GameObject Image;
-
+    public AudioClip catAudio;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag=="Player")
         {
+            SoundManager._soundInstance.OnAudio(catAudio);
             Image.SetActive(true);
             StartCoroutine(FadeOutRoutine());
         }
