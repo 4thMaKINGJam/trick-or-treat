@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public int HP = 10;
 
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
@@ -19,10 +18,11 @@ public class Ghost : MonoBehaviour
     {
         if (other.gameObject.layer == (int)Define.Layer.MonsterDamage)
         {
-            HP--;
+            GameManager.SkullHp--;
             _sprite.color = Color.red;
             _sprite.DOColor(Color.white, 0.2f);
-            if (HP <= 0)
+            SkullHpManager.FindObjectOfType<SkullHpManager>().ShowHp();
+            if (GameManager.SkullHp <= 0)
             {
                 Destroy(gameObject);
             }
