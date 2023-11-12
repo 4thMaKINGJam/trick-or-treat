@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static int playerHp = 5;
-    public static int playerAtk = 10;
 
     public static bool isCandy = false;
     public static bool gameover = false;
@@ -74,7 +73,8 @@ public class GameManager : MonoBehaviour
 
     public static void RestartGame()
     {
-        Scene.LoadScene(Define.Scene.StartScene);
         //데이터초기화
+        playerHp = 5;
+        gameover = false;
     }
 }
