@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static int playerHp = 5;
-    public static int playerAtk = 10;
 
     public static bool isCandy = false;
+    public static bool gameover = false;
     
     static GameManager _instance;
     static GameManager Instance { get { Init(); return _instance; } }
@@ -16,12 +17,14 @@ public class GameManager : MonoBehaviour
     private ChangeScene _scene = new ChangeScene();
     public static ChangeScene Scene { get { return _instance._scene;  } }
 
-    [SerializeField]
     private GameObject gameOverUI;
 
     void Start()
     {
         Init();
+        gameOverUI = Resources.Load("Prefabs/Popup/CanvasGameOver").GameObject();
+
+        gameover = false;
     }
 
     static void Init()
@@ -47,8 +50,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Camera.main.GetComponent<CameraManager>()?.CameraPause();
-        gameOverUI.SetActive(true);
+        if (!gameover)
+        {
+            
+            Camera.main.GetComponent<CameraManager>()?.CameraPause();
+            Instantiate(gameOverUI);
+            gameover = true;
+        }
         //StartCoroutine(GameOverRoutine());
     }
 
@@ -61,5 +69,12 @@ public class GameManager : MonoBehaviour
     public static void RestartStage002()
     {
         Scene.LoadScene(Define.Scene.Stage002);
+    }
+
+    public static void RestartGame()
+    {
+        //데이터초기화
+        playerHp = 5;
+        gameover = false;
     }
 }
