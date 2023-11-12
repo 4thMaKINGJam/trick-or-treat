@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraDelay : MonoBehaviour
 {
-
     public float delayTime = 3.0f;
+
     void Start()
     {
         StartCoroutine(Delay());
