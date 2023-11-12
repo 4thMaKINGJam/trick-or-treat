@@ -7,7 +7,7 @@ public class Light : MonoBehaviour
     [SerializeField] private GameObject lamp; // lamp prefab
     [SerializeField] private GameObject beam; // beam prefab
 
-    private SpriteRenderer lampSr;  // ·¥ÇÁ ¹ÝÂ¦
+    private SpriteRenderer lampSr;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¦
     private SpriteRenderer beamSr;
 
     private float timer = 0;                // timer
@@ -18,6 +18,7 @@ public class Light : MonoBehaviour
     private float loopTime = 1.5f;
     [SerializeField] private float maxX; // 
     [SerializeField] private float minX; // 
+    public AudioClip AttackEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class Light : MonoBehaviour
             StartCoroutine(BlinkLamp());
 
             // on beam
-            // ¹ß»ç Àü, 1~2ÃÊ ½¬±â
+            // ï¿½ß»ï¿½ ï¿½ï¿½, 1~2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Invoke("OnBeam", 1f);
         }
 
@@ -55,6 +56,7 @@ public class Light : MonoBehaviour
     private void OnBeam()
     {
         beam.SetActive(true);
+        SoundManager._soundInstance.OnAudio(AttackEffect);
         StartCoroutine(BlinkBeam());
         Invoke("OffBeam", 1f);
     }

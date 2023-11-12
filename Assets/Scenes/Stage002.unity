@@ -384,6 +384,14 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1237207943871812868, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
+      propertyPath: JumpEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: bf989098433266d4ea70ba98489f4500, type: 3}
+    - target: {fileID: 1237207943871812868, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 782c238a17dcddc49910b4aca3213fe2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e3ad908c3b007c46ab6b4132a3fbb10, type: 3}
 --- !u!1001 &242224819

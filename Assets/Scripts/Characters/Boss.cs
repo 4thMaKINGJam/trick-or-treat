@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour
     private float attackCoolTime = 0.7f;    // attack cool time
     private float attackReadyTime = 1.0f;
     private bool attackReady = false;
+    public AudioClip AttackEffect;
 
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
@@ -28,6 +29,8 @@ public class Boss : MonoBehaviour
 
         if (timer == 0)
         {
+            
+            SoundManager._soundInstance.OnAudio(AttackEffect);
             // make laser
             Vector3 tmp = new Vector3(transform.position.x, targetY, transform.position.z);
             Destroy(Instantiate(laser, tmp, Quaternion.identity), 5f);
