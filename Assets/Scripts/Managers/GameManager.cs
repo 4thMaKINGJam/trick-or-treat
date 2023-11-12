@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Init();
-        gameOverUI = Resources.Load("/Prefabs/Popup/GameOverPopup").GameObject();
+        gameOverUI = Resources.Load("Prefabs/Popup/GameOverPopup").GameObject();
     }
 
     static void Init()
