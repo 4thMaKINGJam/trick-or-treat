@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,14 @@ public class magicAttack : MonoBehaviour
         {
             hp--;
             StartCoroutine(Die());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
+        {
+            Destroy(gameObject);
         }
     }
 

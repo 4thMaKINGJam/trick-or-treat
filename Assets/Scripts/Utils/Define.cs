@@ -27,6 +27,8 @@ public class Define
         MonsterDamage = 7,
         Ground = 8,
         Dead = 9,
+        Item = 10,
+        Obj = 11,
     }
 
     public string PlayerTag = "Player";
