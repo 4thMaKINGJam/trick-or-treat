@@ -157,8 +157,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
         {
             //공격당하기
+            Debug.Log("Attacking : " + GameManager.playerHp);
             GameManager.playerHp--;
-            Camera.main.GetComponent<CameraManager>()?.CameraShake(0.2f, 0.3f); // 카메라 흔듦
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.2f, 0.3f); // 카메라 흔듦
         }
     }
 }
