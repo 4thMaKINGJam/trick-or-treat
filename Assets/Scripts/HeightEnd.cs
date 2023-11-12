@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HeightEnd : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Height End");
-        GameManager.Scene.LoadScene(Define.Scene.BossScene);
+    void OnTriggerEnter2D(Collider2D other) { 
+    //{       
+    //    //GameManager.Scene.LoadScene(Define.Scene.BossScene);
+    //    Camera.main.GetComponent<CameraManager>().goalCamera();
     }
 }
