@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //if (noDamageTimer > 0) return; // 무적
         if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
         {
             if (noDamageTimer > 0) return; // 무적
