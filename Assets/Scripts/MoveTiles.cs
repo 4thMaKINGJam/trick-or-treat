@@ -9,6 +9,6 @@ public class MoveTiles : MonoBehaviour
     public float endValue = 1f;
     void Start()
     {
-        gameObject.transform.DOLocalMoveX(endValue, movingTime).SetLoops(-1, LoopType.Yoyo);
+        gameObject.transform.DOLocalMoveX(transform.position.x + endValue, movingTime).SetLoops(-1, LoopType.Yoyo);
     }
 }
