@@ -173,6 +173,7 @@ public class PlayerController : MonoBehaviour
             Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
             StartCoroutine(GetDamagedRoutine());
         }
+
     }
 
     public System.Collections.IEnumerator GetDamagedRoutine()
