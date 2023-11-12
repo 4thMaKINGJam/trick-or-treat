@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 1.0f;
     public float fallForce = 1000f;
     public float speed = 8.0f;
+    public AudioClip AttackEffect;
+    public AudioClip JumpEffect;
 
     private Animator _anim;
     private Transform _transform;
@@ -37,7 +39,6 @@ public class PlayerController : MonoBehaviour
     private PlayerState _state;
     private Quaternion _left;
     private Quaternion _right;
-    //private ShortAttack _shortAttack;
     private void Awake()
     {
         _anim = gameObject.GetComponent<Animator>();
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour
         _state = PlayerState.Idle;
         _left = Quaternion.Euler(new Vector3(0f, 180.0f, 0f));
         _right = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-        //_shortAttack = Util.FindChild<ShortAttack>(gameObject, Define.Attack.ShortAttack.ToString(), false);
     }
 
     private void Start()
@@ -72,14 +72,12 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) { Turn(_left); }
         else if (Input.GetKeyDown(KeyCode.RightArrow)) { Turn(_right); }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) { Move(); }
-        else
-        {
-            _anim.Play("Idle");
-        }
+        else { _anim.Play("Idle"); }
     }
 
     private void MagicAttack()
     {
+        SoundManager._soundInstance.OnAudio(AttackEffect);
         if (_transform.rotation.y != 0)
         { //좌우 방향 확인
             Destroy(Instantiate(laser, _transform.position, _left), 5f);
@@ -90,12 +88,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
-    private void ShortAttack()
-    {
-        _shortAttack.Attack();
-    }
-*/
     private void Move()
     {
         _transform.Translate(speed * Time.deltaTime * Vector3.right);
@@ -116,8 +108,9 @@ public class PlayerController : MonoBehaviour
         else _state = PlayerState.Jump;
         _rigid.AddForce(jumpForce * transform.up, ForceMode2D.Impulse);
         //점프 애니메이션 출력
+        
+        SoundManager._soundInstance.OnAudio(JumpEffect);
 
-        Debug.Log("Jump");
     }
 
     private void Dash()

@@ -7,12 +7,20 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     private float noDamageTimer = 1.0f; // 公利 矫埃
-
+    public AudioClip wakeupEffect;
+    public AudioClip DamageEffect;
+    public AudioClip DieEffect;
+    
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Awake()
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+        SoundManager._soundInstance.OnAudio(wakeupEffect);
     }
 
     private void Update()
@@ -28,15 +36,18 @@ public class Ghost : MonoBehaviour
             if (noDamageTimer > 0) return; // 公利
 
             noDamageTimer = 1.0f;
-
+            
             GameManager.SkullHp--;
             _sprite.color = Color.red;
             _sprite.DOColor(Color.white, 0.2f);
             SkullHpManager.FindObjectOfType<SkullHpManager>().ShowHp();
             if (GameManager.SkullHp <= 0)
             {
+                SoundManager._soundInstance.OnAudio(DieEffect);
                 Destroy(gameObject);
             }
+            SoundManager._soundInstance.OnAudio(DamageEffect);
+
         }
     }
 }
