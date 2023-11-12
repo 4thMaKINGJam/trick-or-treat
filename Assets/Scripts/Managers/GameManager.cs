@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,12 +17,12 @@ public class GameManager : MonoBehaviour
     private ChangeScene _scene = new ChangeScene();
     public static ChangeScene Scene { get { return _instance._scene;  } }
 
-    [SerializeField]
     private GameObject gameOverUI;
 
     void Start()
     {
         Init();
+        gameOverUI = Resources.Load("/Prefabs/Popup/GameOverPopup").GameObject();
     }
 
     static void Init()
