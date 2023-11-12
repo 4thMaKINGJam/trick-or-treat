@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -872,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchorMin.y
@@ -916,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7573712388761645415, guid: 94927e54ce4acc74daed63846f7ea8b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1306,7 +1306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbab0ab6f2b7ef4a9a9ed35c008f7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
 --- !u!1001 &1318929340
 PrefabInstance:
   m_ObjectHideFlags: 0

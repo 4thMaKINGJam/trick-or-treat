@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BossMonster : MonoBehaviour
 {
+    private float noDamageTimer = 1.0f; // 무적 시간
+
     [SerializeField] private GameObject[] bossElement; // 
 
     [SerializeField] private GameObject hpUi; // 
 
     private void Update()
     {
+        noDamageTimer -= Time.deltaTime;
+
         if (GameManager.bossHp <= 0)
         {
             GameManager.Scene.LoadScene(Define.Scene.EndingScene);
@@ -19,8 +23,11 @@ public class BossMonster : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (noDamageTimer > 0) return; // 무적
         if (other.gameObject.layer == (int)Define.Layer.MonsterDamage)
         {
+
+            noDamageTimer = 1.0f;
             //공격당하기
             GameManager.bossHp--;
             StartCoroutine(DamagedMonster());
