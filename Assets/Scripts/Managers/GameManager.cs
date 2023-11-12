@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static int playerAtk = 10;
 
     public static bool isCandy = false;
+    public static bool gameover = false;
     
     static GameManager _instance;
     static GameManager Instance { get { Init(); return _instance; } }
@@ -22,7 +23,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Init();
-        gameOverUI = Resources.Load("Prefabs/Popup/GameOverPopup").GameObject();
+        gameOverUI = Resources.Load("Prefabs/Popup/CanvasGameOver").GameObject();
+
+        gameover = false;
     }
 
     static void Init()
@@ -48,8 +51,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Camera.main.GetComponent<CameraManager>()?.CameraPause();
-        gameOverUI.SetActive(true);
+        if (!gameover)
+        {
+            
+            Camera.main.GetComponent<CameraManager>()?.CameraPause();
+            Instantiate(gameOverUI);
+            gameover = true;
+        }
         //StartCoroutine(GameOverRoutine());
     }
 
@@ -62,5 +70,11 @@ public class GameManager : MonoBehaviour
     public static void RestartStage002()
     {
         Scene.LoadScene(Define.Scene.Stage002);
+    }
+
+    public static void RestartGame()
+    {
+        Scene.LoadScene(Define.Scene.StartScene);
+        //데이터초기화
     }
 }
