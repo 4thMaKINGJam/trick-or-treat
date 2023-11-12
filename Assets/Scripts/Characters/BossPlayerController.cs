@@ -78,7 +78,7 @@ public class BossPlayerController : MonoBehaviour
 
             GameManager.playerHp--;
             PlayerHpManager.FindObjectOfType<PlayerHpManager>().ShowHp();
-            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.2f, 0.0f); // 카메라 흔듦
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
             StartCoroutine(GetDamagedRoutine());
         }
         //Debug.Log("Trigger");

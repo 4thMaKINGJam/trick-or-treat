@@ -9,7 +9,7 @@ public class HpUIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject healthImagePrefab;
-    private float spacing = 0.8f; // Adjust this value to set the spacing between health images
+    private float spacing = 0.6f; // Adjust this value to set the spacing between health images
 
 
     public void ShowHp(int hp)

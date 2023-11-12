@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public int HP = 10;
+    private float noDamageTimer = 1.0f; // 公利 矫埃
 
     private SpriteRenderer _sprite;
     // Start is called before the first frame update
@@ -14,15 +14,26 @@ public class Ghost : MonoBehaviour
     {
         _sprite = gameObject.GetComponent<SpriteRenderer>();
     }
-    
+
+    private void Update()
+    {
+        noDamageTimer -= Time.deltaTime;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.layer == (int)Define.Layer.MonsterDamage)
         {
-            HP--;
+            if (noDamageTimer > 0) return; // 公利
+
+            noDamageTimer = 1.0f;
+
+            GameManager.SkullHp--;
             _sprite.color = Color.red;
             _sprite.DOColor(Color.white, 0.2f);
-            if (HP <= 0)
+            SkullHpManager.FindObjectOfType<SkullHpManager>().ShowHp();
+            if (GameManager.SkullHp <= 0)
             {
                 Destroy(gameObject);
             }

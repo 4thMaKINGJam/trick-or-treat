@@ -5,6 +5,10 @@ using TMPro;
 using Unity.VisualScripting;
 using Sequence = DG.Tweening.Sequence;
 
+//using System.Collections;
+//using System.Collections.Generic;
+//using System.Runtime.CompilerServices;
+
 public enum PlayerState
 {
     Idle,
@@ -15,8 +19,10 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
+    private float noDamageTimer = 1.0f; // 무적 시간
+
     [SerializeField] private GameObject laser; //laser 프리팹
-    
+
     public float firstForce = 3f; //처음 마녀가 떨어질 때 앞으로 가해지는 힘
     public float jumpForce = 1000f;
     public float dashForce = 3f;
@@ -42,7 +48,7 @@ public class PlayerController : MonoBehaviour
         _right = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         //_shortAttack = Util.FindChild<ShortAttack>(gameObject, Define.Attack.ShortAttack.ToString(), false);
     }
-    
+
     private void Start()
     {
         _rigid.velocity = new Vector3(firstForce, 0f, 0f);
@@ -50,17 +56,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        noDamageTimer -= Time.deltaTime;
+
         PlayerInput();
     }
 
     private void PlayerInput()
     {
         //if(Input.GetKeyDown(KeyCode.A)) { ShortAttack();} //폐기
-        
-        if(Input.GetKeyDown(KeyCode.Z)) { MagicAttack();}
-        else if(Input.GetKeyDown(KeyCode.X)) { Dash();}
-        else if(Input.GetKeyDown(KeyCode.Space)){ Jump();}
-        else if(Input.GetKeyDown(KeyCode.DownArrow)) { Fall();}
+
+        if (Input.GetKeyDown(KeyCode.Z)) { MagicAttack(); }
+        else if (Input.GetKeyDown(KeyCode.X)) { Dash(); }
+        else if (Input.GetKeyDown(KeyCode.Space)) { Jump(); }
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) { Fall(); }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) { Turn(_left); }
         else if (Input.GetKeyDown(KeyCode.RightArrow)) { Turn(_right); }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) { Move(); }
@@ -72,10 +80,12 @@ public class PlayerController : MonoBehaviour
 
     private void MagicAttack()
     {
-        if (_transform.rotation.y != 0) { //좌우 방향 확인
+        if (_transform.rotation.y != 0)
+        { //좌우 방향 확인
             Destroy(Instantiate(laser, _transform.position, _left), 5f);
         }
-        else {
+        else
+        {
             Destroy(Instantiate(laser, _transform.position, _right), 5f);
         }
     }
@@ -105,8 +115,8 @@ public class PlayerController : MonoBehaviour
         if (_state == PlayerState.Jump) { _state = PlayerState.DoubleJump; }
         else _state = PlayerState.Jump;
         _rigid.AddForce(jumpForce * transform.up, ForceMode2D.Impulse);
-            //점프 애니메이션 출력
-        
+        //점프 애니메이션 출력
+
         Debug.Log("Jump");
     }
 
@@ -115,19 +125,21 @@ public class PlayerController : MonoBehaviour
         if (_state == PlayerState.Dash) return;
 
         _anim.Play("Idle");
-        
+
         PlayerState tempState = _state;
         _state = PlayerState.Dash;
-        
+
         Sequence s = DOTween.Sequence();
-        
-        if (_transform.rotation.y != 0) { //좌우 방향 확인
+
+        if (_transform.rotation.y != 0)
+        { //좌우 방향 확인
             s.Append(_transform.DOLocalMove(new Vector3(_transform.position.x - dashForce, _transform.position.y, 0f), dashDuration));
         }
-        else {
+        else
+        {
             s.Append(_transform.DOLocalMove(new Vector3(_transform.position.x + dashForce, _transform.position.y, 0f), dashDuration));
         }
-        s.Play().OnComplete(() => {_state = tempState;_rigid.AddForce(dashFallForce * Vector2.down, ForceMode2D.Impulse); });
+        s.Play().OnComplete(() => { _state = tempState; _rigid.AddForce(dashFallForce * Vector2.down, ForceMode2D.Impulse); });
         Debug.Log("Dash");
     }
 
@@ -135,8 +147,8 @@ public class PlayerController : MonoBehaviour
     {
         _rigid.AddForce(fallForce * Vector2.down, ForceMode2D.Impulse);
         Debug.Log("Fall");
-    } 
-    
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == (int)Define.Layer.Ground)
@@ -156,10 +168,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == (int)Define.Layer.PlayerDamage)
         {
+            if (noDamageTimer > 0) return; // 무적
+
+            noDamageTimer = 1.0f;
+
             //공격당하기
-            Debug.Log("Attacking : " + GameManager.playerHp);
+            //Debug.Log("Attacking : " + GameManager.playerHp);
             GameManager.playerHp--;
-            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.2f, 0.3f); // 카메라 흔듦
+            PlayerHpManager.FindObjectOfType<PlayerHpManager>().ShowHp();
+            Camera.main.GetComponent<BossCamera>()?.CameraShake(0.4f, 0.3f); // 카메라 흔듦
+            StartCoroutine(GetDamagedRoutine());
+        }
+    }
+
+    public System.Collections.IEnumerator GetDamagedRoutine()
+    {
+        for (int i = 0; i <= 100; i++)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 0.01f * i, 0.01f * i);
+
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }
