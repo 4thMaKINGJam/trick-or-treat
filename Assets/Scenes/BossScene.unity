@@ -198,6 +198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 496851173}
     m_Modifications:
+    - target: {fileID: 865806263860428933, guid: 47295fd733a0b7746a9eaeb25ae31963, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 7132427585891460887, guid: 47295fd733a0b7746a9eaeb25ae31963, type: 3}
       propertyPath: m_Name
       value: BossHP
@@ -1289,6 +1293,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 678199866548952418, guid: 9ae623e578325494c86ff695f2710497, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678199866548952420, guid: 9ae623e578325494c86ff695f2710497, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0fc570644357f44a8ed8d1b75437922, type: 3}
     - target: {fileID: 678199866548952421, guid: 9ae623e578325494c86ff695f2710497, type: 3}
       propertyPath: m_RootOrder
       value: 3
